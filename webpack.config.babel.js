@@ -25,6 +25,7 @@ function config({dev = false} = {}) {
     output: {
       path: resolve(__dirname, dest),
       filename: 'react-whs.js',
+      library: 'WHSReact',
       libTarget: 'umd',
     },
     module: {
