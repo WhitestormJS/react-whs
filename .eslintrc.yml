@@ -1,0 +1,4 @@
+root: true
+extends: prev/react
+env:
+  browser: true
