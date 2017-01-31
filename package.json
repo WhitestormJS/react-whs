@@ -5,9 +5,13 @@
   "author": "Plusb Preco <plusb21@gmail.com>",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm run build",
+    "prebuild": "npm run clean",
     "test": "npm run lint",
     "lint": "eslint --ext .js,.jsx .",
-    "build": "babel --out-dir lib src",
+    "build": "npm run babel && npm run webpack",
+    "babel": "babel --out-dir lib src",
+    "webpack": "webpack --progress",
     "clean": "rimraf lib"
   },
   "license": "MIT",
@@ -17,7 +21,8 @@
     "url": "https://github.com/WhitestormJS/react-whs/issues"
   },
   "dependencies": {
-    "react": "^15.3.2"
+    "react": "^15.3.2",
+    "whs": "beta"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
