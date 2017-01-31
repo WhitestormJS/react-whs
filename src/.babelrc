@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": {
+      "presets": [
+        "env",
+        "stage-1"
+      ]
+    },
+    "browser": {
+      "presets": [
+        ["env", {"targets": {"module": false}}],
+        "stage-1"
+      ]
+    }
+  }
+}

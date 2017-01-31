@@ -10,8 +10,8 @@
     "test": "npm run lint",
     "lint": "eslint --ext .js,.jsx .",
     "build": "npm run babel && npm run webpack",
-    "babel": "babel --out-dir lib src",
-    "webpack": "webpack --progress",
+    "babel": "cross-env BABEL_ENV=node babel --out-dir lib src",
+    "webpack": "cross-env BABEL_ENV=browser webpack --progress",
     "clean": "rimraf lib"
   },
   "license": "MIT",
@@ -34,6 +34,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.18.0",
     "clean-webpack-plugin": "^0.1.14",
+    "cross-env": "^3.1.4",
     "eslint": "latest",
     "eslint-config-prev": "^3.1.0",
     "eslint-plugin-babel": "^4.0.0",

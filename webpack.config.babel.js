@@ -15,10 +15,6 @@ const dest = 'build';
 const clean = [dest];
 
 function config({dev = false} = {}) {
-  if (dev) {
-    process.env.BABEL_ENV = 'development';
-  }
-
   return {
     devtool: dev ? 'eval-source-map' : 'hidden-source-map',
     entry: `./${src}`,
@@ -26,7 +22,7 @@ function config({dev = false} = {}) {
       path: resolve(__dirname, dest),
       filename: 'react-whs.js',
       library: 'WHSReact',
-      libTarget: 'umd',
+      libraryTarget: 'umd',
     },
     module: {
       rules: [
