@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {App, reactify} from '../src/index';
-
-const Sphere = reactify(WHS.Sphere);
+import {App, Sphere} from '../src/index';
 
 export class Application extends Component {
   render() {
@@ -19,6 +17,7 @@ export class Application extends Component {
         <Sphere
           geometry={[3, 32, 32]}
           material={new THREE.MeshBasicMaterial({color: 0xffffff})}
+          key="1"
         >
           <Sphere
             geometry={[3, 32, 32]}
@@ -26,6 +25,12 @@ export class Application extends Component {
             position={[3, 0, 0]}
           />
         </Sphere>
+        <Sphere
+          geometry={[3, 32, 32]}
+          material={new THREE.MeshBasicMaterial({color: 0x00ff00})}
+          position={[-3, 0, 3]}
+          key="2"
+        />
       </App>
     )
   }
