@@ -1,64 +1,49 @@
-import {resolve} from 'path';
-import {
-  DefinePlugin,
-  LoaderOptionsPlugin,
-  optimize,
-} from 'webpack';
-import CleanPlugin from 'clean-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
 
-const {
-  UglifyJsPlugin,
-} = optimize;
+process.env.BABEL_ENV = 'browser';
 
-const src = 'src';
-const dest = 'build';
-const clean = [dest];
+const isProduction = process.env.NODE_ENV === 'production';
 
-function config({dev = false} = {}) {
-  return {
-    devtool: dev ? 'eval-source-map' : 'hidden-source-map',
-    entry: `./${src}`,
-    output: {
-      path: resolve(__dirname, dest),
-      filename: 'react-whs.js',
-      library: 'WHSReact',
-      libraryTarget: 'umd',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.jsx?$/,
-          include: resolve(__dirname, src),
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: dev,
-          },
-        },
-      ],
-    },
-    plugins: [
-      new CleanPlugin(clean),
-      new DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production'),
-      }),
-      new UglifyJsPlugin({
-        sourceMap: true,
-        comments: false,
-      }),
-      new LoaderOptionsPlugin({
-        minimize: !dev,
-        debug: dev,
-        options: {
-          context: __dirname,
-        },
-      }),
-    ],
-    resolve: {
-      extensions: ['.js', '.jsx'],
-    },
-  };
+console.log(
+  isProduction
+  ? 'Production mode'
+  : 'Development mode'
+);
+
+export default {
+  devtool: isProduction ? false : 'source-map',
+  entry: './src/index.js',
+  target: 'web',
+  output: {
+    path: path.join(__dirname, './build/'),
+    filename: 'react-whs.js',
+    libraryTarget: 'umd',
+    library: 'BasicSphere'
+  },
+  externals: {
+    whs: 'WHS',
+    three: 'THREE'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+  plugins: isProduction
+  ? [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+      minimize: true
+    }),
+  ]
+  : [],
+  devServer: {
+    contentBase: './examples/',
+    publicPath: '/build/'
+  }
 }
-
-export {
-  config as default,
-};

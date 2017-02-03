@@ -1,6 +1,6 @@
 {
-  "presets": [
-    ["env", {"targets": {"node": true}}],
-    "stage-1"
-  ]
+    "presets": [
+        "es2015",
+        "stage-1"
+    ]
 }
