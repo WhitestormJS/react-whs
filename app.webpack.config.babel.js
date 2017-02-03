@@ -13,13 +13,11 @@ console.log(
 
 export default {
   devtool: isProduction ? false : 'source-map',
-  entry: './src/index.js',
+  entry: './app/index.js',
   target: 'web',
   output: {
-    path: path.join(__dirname, './build/'),
-    filename: 'react-whs.js',
-    libraryTarget: 'umd',
-    library: 'WHSReact'
+    path: path.join(__dirname, './app/build/'),
+    filename: 'bundle.js',
   },
   externals: {
     whs: 'WHS',
@@ -43,7 +41,7 @@ export default {
   ]
   : [],
   devServer: {
-    contentBase: './examples/',
+    contentBase: './app/',
     publicPath: '/build/'
   }
 }
