@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "6"
+before_script:
+  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
+  - npm install
+  - npm install -g jest
+script:
+  - npm test
