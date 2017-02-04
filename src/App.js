@@ -3,11 +3,15 @@ import {App as AppOrigin} from 'whs';
 import {TransitionBase} from './TransitionBase';
 
 export class App extends TransitionBase {
+  static defaultProps = {
+    start: true
+  };
+
   constructor(...props) {
     super(...props);
 
     this.native = new AppOrigin();
-    this.native.start();
+    if (this.props.start) this.native.start();
   }
 
   componentDidMount() {
