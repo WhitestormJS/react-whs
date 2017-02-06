@@ -4,7 +4,7 @@ WhitestormJS React integration
 
 ## Usage 
 
-```javasript
+```javascript
 import React, {Component} from 'react';
 import {App, Sphere} from 'react-whs';
 
