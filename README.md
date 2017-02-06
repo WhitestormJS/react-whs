@@ -2,6 +2,8 @@
 
 # react-whs [![Build Status](https://img.shields.io/travis/WhitestormJS/react-whs.svg?style=flat-square)](https://travis-ci.org/WhitestormJS/react-whs)
 
+> Go to [WhitestormJS/whitestorm.js](https://github.com/WhitestormJS/whitestorm.js)
+
 ## Usage 
 
 ```javascript
