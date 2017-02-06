@@ -31,3 +31,25 @@ export class Application extends Component {
   }
 }
 ```
+
+## Custom components (that are not included in whs lib)
+
+> Simply include `@reactify` decorator.
+
+```javascript
+import React, {Component} from 'react';
+import * as THREE from 'three';
+import {MeshComponent} from 'whs/src/core/MeshComponent';
+
+import {reactify} from 'react-whs';
+
+@reactify
+export default class BasicSphere extends MeshComponent {
+  build() {
+    return new THREE.Mesh(
+      new THREE.SphereGeometry(3, 16, 16),
+      new THREE.MeshBasicMaterial({color: 0xff0000}) // red
+    );
+  }
+}
+```
