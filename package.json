@@ -1,4 +1,7 @@
 {
+  "name": "react-whs",
+  "description": "React-WhitestormJS integration",
+  "version": "0.1.0",
   "main": "src/index.js",
   "scripts": {
     "build": "webpack",
@@ -29,5 +32,18 @@
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhitestormJS/react-whs.git"
+  },
+  "author": "Alexander Buzin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhitestormJS/react-whs/issues"
+  },
+  "homepage": "https://github.com/WhitestormJS/react-whs#readme"
 }
