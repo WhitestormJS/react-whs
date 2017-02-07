@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {App as AppOrigin} from 'whs';
 import {TransitionBase} from './TransitionBase';
 

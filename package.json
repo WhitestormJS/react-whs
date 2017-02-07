@@ -1,8 +1,8 @@
 {
   "name": "react-whs",
   "description": "React-WhitestormJS integration",
-  "version": "0.1.0",
-  "main": "src/index.js",
+  "version": "0.1.1",
+  "main": "build/react-whs.js",
   "scripts": {
     "build": "webpack",
     "start": "npm run app",

@@ -36,12 +36,28 @@ export default {
   },
   plugins: isProduction
   ? [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       minimize: true
     }),
   ]
-  : [],
+  : [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
+  resolve: {
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react')
+    }
+  },
   devServer: {
     contentBase: './examples/',
     publicPath: '/build/'
