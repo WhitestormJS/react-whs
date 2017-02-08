@@ -15,8 +15,7 @@ export class App extends TransitionBase {
   }
 
   componentDidMount() {
-    const element = this.refs.whscontainer;
-    this.native.manager.add('element', element, {alias: '$element'});
+    this.native.manager.add('element', this.element, {alias: '$element'});
 
     this.props.modules.forEach(module => {
       this.native.applyModule(module);
@@ -27,7 +26,7 @@ export class App extends TransitionBase {
 
   render() {
     return (
-      <div className='whs' ref='whscontainer'>
+      <div className='whs' ref={ref => {this.element = ref}}>
         {this.applyChildren()}
       </div>
     )
