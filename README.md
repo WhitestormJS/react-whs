@@ -6,6 +6,11 @@
 
 ## Usage 
 
+Try with **React** on [**Codepen**](http://codepen.io/sasha240100/pen/dNqKMd?editors=1010):
+
+<a href="http://codepen.io/sasha240100/pen/dNqKMd?editors=1010"><img src="http://i.imgur.com/AcsnqTs.png" height="50" /></a>
+
+
 ```javascript
 import React, {Component} from 'react';
 import {App, Sphere} from 'react-whs';
