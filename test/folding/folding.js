@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {App, Sphere} from '../../build/react-whs';
+import {App, Sphere} from '../../src/index';
 
 import * as WHS from 'whs';
 import * as THREE from 'three';
