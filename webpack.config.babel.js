@@ -22,7 +22,12 @@ export default {
     library: 'WHSReact'
   },
   externals: {
-    whs: 'WHS',
+    whs: {
+      commonjs: "whs",
+      commonjs2: "whs",
+      amd: "whs",
+      root: "WHS"
+    },
     three: 'THREE'
   },
   module: {
@@ -49,7 +54,7 @@ export default {
   : [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('development')
       }
     })
   ],

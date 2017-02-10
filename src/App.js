@@ -4,7 +4,8 @@ import {TransitionBase} from './TransitionBase';
 
 export class App extends TransitionBase {
   static defaultProps = {
-    start: true
+    start: true,
+    parent: 'div'
   };
 
   constructor(...props) {
@@ -22,13 +23,17 @@ export class App extends TransitionBase {
     });
 
     this.mount();
+
+    if (this.props.afterMount) this.props.afterMount.bind(this)(this.props.afterMountParams);
   }
 
   render() {
+    const Parent = this.props.parent;
+
     return (
-      <div className='whs' ref={ref => {this.element = ref}}>
+      <Parent className='whs' ref={ref => {this.element = ref}}>
         {this.applyChildren()}
-      </div>
+      </Parent>
     )
   }
 }
