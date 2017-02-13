@@ -16,15 +16,23 @@ export class App extends TransitionBase {
   }
 
   componentDidMount() {
+    const {
+      modules,
+      afterMount,
+      afterMountParams,
+      handleRenderView
+    } = this.props;
+
     this.native.manager.add('element', this.element, {alias: '$element'});
 
-    this.props.modules.forEach(module => {
+    modules.forEach(module => {
       this.native.applyModule(module);
     });
 
     this.mount();
 
-    if (this.props.afterMount) this.props.afterMount.bind(this)(this.props.afterMountParams);
+    if (afterMount) afterMount.bind(this)(afterMountParams);
+    if (handleRenderView) handleRenderView(this);
   }
 
   render() {
