@@ -1985,10 +1985,6 @@ var App = exports.App = function (_TransitionBase) {
           afterMountParams = _props.afterMountParams,
           passAppToView = _props.passAppToView;
 
-      // this.element.measure((x, y, width, height) => {
-      //   this.element.clientWidth = width;
-      //   this.element.clientHeight = height;
-      // });
 
       this.native.manager.add('element', this.element, { alias: '$element' });
 
@@ -1996,7 +1992,7 @@ var App = exports.App = function (_TransitionBase) {
         _this2.native.applyModule(module);
       });
 
-      passAppToView(this);
+      if (passAppToView) passAppToView(this);
       this.mount();
       if (afterMount) afterMount.bind(this)(afterMountParams);
     }
@@ -2005,11 +2001,14 @@ var App = exports.App = function (_TransitionBase) {
     value: function render() {
       var _this3 = this;
 
-      var Parent = this.props.parent;
+      var _props2 = this.props,
+          Parent = _props2.parent,
+          parentStyle = _props2.parentStyle;
+
 
       return _react2.default.createElement(
         Parent,
-        { style: { flex: 1 }, className: 'whs', ref: function ref(_ref2) {
+        { style: parentStyle, className: 'whs', ref: function ref(_ref2) {
             _this3.element = _ref2;
           } },
         this.applyChildren()
@@ -2022,7 +2021,8 @@ var App = exports.App = function (_TransitionBase) {
 
 App.defaultProps = {
   start: true,
-  parent: 'div'
+  parent: 'div',
+  parentStyle: { flex: 1 }
 };
 
 /***/ }),

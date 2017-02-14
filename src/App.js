@@ -5,7 +5,8 @@ import {TransitionBase} from './TransitionBase';
 export class App extends TransitionBase {
   static defaultProps = {
     start: true,
-    parent: 'div'
+    parent: 'div',
+    parentStyle: {flex: 1}
   };
 
   constructor(...props) {
@@ -29,16 +30,16 @@ export class App extends TransitionBase {
       this.native.applyModule(module);
     });
 
-    passAppToView(this);
+    if (passAppToView) passAppToView(this);
     this.mount();
     if (afterMount) afterMount.bind(this)(afterMountParams);
   }
 
   render() {
-    const Parent = this.props.parent;
+    const {parent: Parent, parentStyle} = this.props;
 
     return (
-      <Parent style={{flex: 1}} className='whs' ref={ref => {this.element = ref}}>
+      <Parent style={parentStyle} className='whs' ref={ref => {this.element = ref}}>
         {this.applyChildren()}
       </Parent>
     )
