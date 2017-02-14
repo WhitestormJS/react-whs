@@ -20,7 +20,7 @@ export class App extends TransitionBase {
       modules,
       afterMount,
       afterMountParams,
-      handleRenderView
+      passAppToView
     } = this.props;
 
     this.native.manager.add('element', this.element, {alias: '$element'});
@@ -29,17 +29,16 @@ export class App extends TransitionBase {
       this.native.applyModule(module);
     });
 
+    passAppToView(this);
     this.mount();
-
     if (afterMount) afterMount.bind(this)(afterMountParams);
-    if (handleRenderView) handleRenderView(this);
   }
 
   render() {
     const Parent = this.props.parent;
 
     return (
-      <Parent className='whs' ref={ref => {this.element = ref}}>
+      <Parent style={{flex: 1}} className='whs' ref={ref => {this.element = ref}}>
         {this.applyChildren()}
       </Parent>
     )
