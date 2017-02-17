@@ -34,6 +34,9 @@ export class Application extends Component {
         />
         <BasicSphere key="3"
           position={[0, 6, 0]}
+          refComponent={component => {
+            component.material.color.setRGB(1, 1, 0); // Set yellow
+          }}
         />
       </App>
     )

@@ -23,10 +23,8 @@ export class TransitionBase extends Component {
   }
 
   mount() {
-    if (this.props.onParentMount && this.props.parent) {
-      console.log(this.props.parent);
+    if (this.props.onParentMount && this.props.parent)
       this.props.onParentMount(() => this.props.parent.add(this.native));
-    }
 
     this.defer.forEach(func => func());
   }

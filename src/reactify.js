@@ -6,6 +6,9 @@ export function reactify(component) {
     constructor(...props) {
       super(...props);
       this.native = new component(Object.assign({}, this.props));
+
+      const {refComponent} = this.props;
+      if (refComponent) refComponent(this.native);
     }
 
     render() {
