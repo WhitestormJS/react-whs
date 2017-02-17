@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {App, Sphere} from '../src/index';
+import {BasicSphere} from './components/BasicSphere';
 
 export class Application extends Component {
   render() {
@@ -30,6 +31,9 @@ export class Application extends Component {
           material={new THREE.MeshBasicMaterial({color: 0x00ff00})}
           position={[-3, 0, 3]}
           key="2"
+        />
+        <BasicSphere key="3"
+          position={[0, 6, 0]}
         />
       </App>
     )
