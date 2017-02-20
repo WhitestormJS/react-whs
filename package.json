@@ -1,7 +1,7 @@
 {
   "name": "react-whs",
   "description": "React-WhitestormJS integration",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "main": "build/react-whs.js",
   "scripts": {
     "build": "webpack",
@@ -27,12 +27,12 @@
     "path": "^0.12.7",
     "react-test-renderer": "^15.4.2",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.2.0",
-    "whs": "^2.0.0-beta.2"
+    "webpack-dev-server": "^2.2.0"
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "whs": "^2.0.0-beta.5"
   },
   "directories": {
     "test": "test"
