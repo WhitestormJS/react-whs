@@ -39,7 +39,9 @@ export class Application extends Component {
 }
 ```
 
-## Custom components (that are not included in whs lib)
+## How whs components can be transformed to react components
+
+### Custom components (that are not included in whs lib)
 
 > Simply include `@reactify` decorator.
 
@@ -57,6 +59,37 @@ export default class BasicSphere extends MeshComponent {
       new THREE.SphereGeometry(3, 16, 16),
       new THREE.MeshBasicMaterial({color: 0xff0000}) // red
     );
+  }
+}
+```
+
+### Properties/params syntax
+> To see how to make whs components work in react see previous note (Custom components)
+
+WHS:
+
+```javascript
+const component = new MyComponent({
+  parameter1: value1,
+  parameter2: value2,
+  position: new THREE.Vector3(x, y, z)
+});
+
+component.addTo(app);
+```
+
+React:
+
+```javascript
+class MyComponentSyntaxExample {
+  render() {
+    return (
+      <MyComponent
+        parameter1={value1}
+        parameter2={value2}
+        position={[x, y, z]}
+      />
+    )
   }
 }
 ```
