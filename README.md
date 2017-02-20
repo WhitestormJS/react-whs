@@ -31,8 +31,35 @@ export class Application extends Component {
         <Sphere
           geometry={[3, 32, 32]}
           material={new THREE.MeshBasicMaterial({color: 0xffffff})}
-          key="1"
         />
+      </App>
+    )
+  }
+}
+```
+
+### Children
+
+```javascript
+import React, {Component} from 'react';
+import {App, Sphere} from 'react-whs';
+
+export class Application extends Component {
+  render() {
+    return (
+      <App modules={[
+        // ...
+      ]}>
+        <Sphere
+          geometry={[3, 32, 32]}
+          material={new THREE.MeshBasicMaterial({color: 0xffffff})}
+        >
+          <Box
+            geometry={[2, 2, 2]}
+            material={new THREE.MeshBasicMaterial({color: 0xff0000})}
+            position={[5, 5, 2]}
+          >
+        </Sphere>
       </App>
     )
   }
