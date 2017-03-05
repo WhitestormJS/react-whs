@@ -14,11 +14,18 @@ export class Application extends Component {
         }),
         new WHS.app.RenderingModule(),
         new WHS.controls.OrbitModule()
-      ]}>
+      ]}
+      refApp={app => {
+        console.log(app); // app
+      }}
+      >
         <Sphere
           geometry={[3, 32, 32]}
           material={new THREE.MeshBasicMaterial({color: 0xffffff})}
           key="1"
+          refComponent={component => {
+            console.log(component); // component
+          }}
         >
           <Sphere
             geometry={[3, 32, 32]}

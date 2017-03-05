@@ -12,8 +12,11 @@ export class App extends TransitionBase {
   constructor(...props) {
     super(...props);
 
+    const {refApp, start} = this.props;
+
     this.native = new AppOrigin();
-    if (this.props.start) this.native.start();
+    if (start) this.native.start();
+    if (refApp) refApp(this.native);
   }
 
   componentDidMount() {
