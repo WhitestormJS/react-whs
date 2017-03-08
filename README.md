@@ -90,6 +90,39 @@ export default class BasicSphere extends MeshComponent {
 }
 ```
 
+### Get reference to Component/App to work with them in js
+For **App** use `refApp`.
+
+For **any component (Mesh, Light, Camera, ...)** use `refComponent`.
+
+```javascript
+import React, {Component} from 'react';
+import {App, Sphere} from 'react-whs';
+
+export class Application extends Component {
+  render() {
+    return (
+      <App modules={[
+        // ...
+        refApp={app => {
+          console.log(app); // will log this WHS.App object
+        }}
+      ]}>
+        <Sphere
+          geometry={[3, 32, 32]}
+          material={new THREE.MeshBasicMaterial({color: 0xffffff})}
+          refComponent={component => {
+            console.log(component); // will log this WHS.Sphere object
+          }}
+        />
+      </App>
+    )
+  }
+}
+```
+
+
+
 ### Properties/params syntax
 > To see how to make whs components work in react see previous note (Custom components)
 
