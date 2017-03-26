@@ -2,7 +2,7 @@ import {
   Mesh,
   IcosahedronGeometry,
   MeshBasicMaterial
-} from 'whs/src/three';
+} from 'three';
 
 import {MeshComponent} from 'whs/src/core/MeshComponent';
 import {reactify} from '../../src/index';

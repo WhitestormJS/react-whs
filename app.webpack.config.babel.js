@@ -19,10 +19,6 @@ export default {
     path: path.join(__dirname, './app/build/'),
     filename: 'bundle.js',
   },
-  externals: {
-    whs: 'WHS',
-    three: 'THREE'
-  },
   module: {
     loaders: [
       {
