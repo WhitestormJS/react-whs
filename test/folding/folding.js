@@ -9,12 +9,12 @@ export class Application extends Component {
   render() {
     return (
       <App modules={[
-        new WHS.app.SceneModule(),
-        new WHS.app.CameraModule({
+        new WHS.SceneModule(),
+        new WHS.DefineModule('camera', new WHS.PerspectiveCamera({
           position: {
             z: 20
           }
-        })
+        }))
       ]}
       start={false}
       >
