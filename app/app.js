@@ -3,8 +3,14 @@ import {App, Sphere} from '../src/index';
 
 import {MeshBasicMaterial} from 'three';
 
-import {SceneModule, CameraModule, RenderingModule} from 'whs/src/modules/app/export';
-import {OrbitModule} from 'whs/src/modules/controls/export';
+import {
+  SceneModule, 
+  CameraModule, 
+  RenderingModule, 
+  OrbitControlsModule, 
+  DefineModule,
+  PerspectiveCamera,
+} from 'whs';
 
 import {BasicSphere} from './components/BasicSphere';
 
@@ -13,13 +19,13 @@ export class Application extends Component {
     return (
       <App modules={[
         new SceneModule(),
-        new CameraModule({
+        new DefineModule('camera', new PerspectiveCamera({
           position: {
             z: 20
           }
-        }),
+        })),
         new RenderingModule(),
-        new OrbitModule()
+        new OrbitControlsModule()
       ]}
       refApp={app => {
         console.log(app); // app

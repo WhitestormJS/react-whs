@@ -27,7 +27,7 @@ export class App extends TransitionBase {
       passAppToView
     } = this.props;
 
-    this.native.manager.add('element', this.element, {alias: '$element'});
+    this.native.manager.set('element', this.element, {alias: '$element'});
 
     modules.forEach(module => {
       this.native.applyModule(module);
