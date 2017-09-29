@@ -4,7 +4,7 @@ import {
   MeshBasicMaterial
 } from 'three';
 
-import {MeshComponent} from 'whs/src/core/MeshComponent';
+import {MeshComponent} from 'whs';
 import {reactify} from '../../src/index';
 
 @reactify
