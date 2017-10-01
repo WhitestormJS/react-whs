@@ -13,11 +13,12 @@ console.log(
 
 export default {
   devtool: isProduction ? false : 'source-map',
-  entry: './app/index.js',
+  entry: ['react-hot-loader/patch', './app/index.js'],
   target: 'web',
   output: {
     path: path.join(__dirname, './app/build/'),
     filename: 'bundle.js',
+    publicPath: '/build/'
   },
   module: {
     loaders: [
@@ -35,9 +36,13 @@ export default {
       minimize: true
     }),
   ]
-  : [],
+  : [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
+  ],
   devServer: {
     contentBase: './app/',
-    publicPath: '/build/'
+    publicPath: '/build/',
+    hot: true
   }
 }
