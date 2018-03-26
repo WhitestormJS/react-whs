@@ -31,6 +31,7 @@
     "jest": "^21.2.1",
     "path": "^0.12.7",
     "react-test-renderer": "^16.0.0",
+    "react-hot-loader": "^3.1.1",
     "three": "^0.87.1",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
