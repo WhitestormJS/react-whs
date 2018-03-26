@@ -18,5 +18,9 @@ export function reactify(component) {
     componentDidMount() {
       this.mount();
     }
+
+    componentWillUnmount() {
+      this.unmount();
+    }
   }
 }
