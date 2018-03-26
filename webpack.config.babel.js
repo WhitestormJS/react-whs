@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import {version} from './package.json';
 
 process.env.BABEL_ENV = 'browser';
 
@@ -11,8 +12,10 @@ console.log(
   : 'Development mode'
 );
 
+console.log(`react-whs v${version}`);
+
 export default {
-  devtool: isProduction ? false : 'source-map',
+  devtool: 'source-map',
   entry: './src/index.js',
   target: 'web',
   output: {
@@ -41,6 +44,9 @@ export default {
   },
   plugins: isProduction
   ? [
+    new webpack.BannerPlugin({
+      banner: `react-whs v${version}`
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
@@ -48,7 +54,8 @@ export default {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
-      minimize: true
+      minimize: true,
+      sourceMap: true
     }),
   ]
   : [
